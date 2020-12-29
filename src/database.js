@@ -1,6 +1,6 @@
 import {Sequelize} from 'sequelize';
 import config from './config';
-const sequelize = new Sequelize('taskapi',config.databaseUser,config.databasePassword,{host:config.databaseHost, dialect:'postgres',});
+const sequelize = new Sequelize(config.databaseName,config.databaseUser,config.databasePassword,{host:config.databaseHost, dialect:'postgres',});
 
 (async ()=>{
 
@@ -13,3 +13,4 @@ const sequelize = new Sequelize('taskapi',config.databaseUser,config.databasePas
         console.error('Unable to connect to the database:', error);
     }
 })();
+export default sequelize;
