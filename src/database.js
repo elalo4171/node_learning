@@ -1,9 +1,11 @@
 import {Sequelize} from 'sequelize';
-
-const sequelize = new Sequelize('taskapi','postgres','elalo417',{host:'localhost', dialect:'postgres'});
+import config from './config';
+const sequelize = new Sequelize('taskapi',config.databaseUser,config.databasePassword,{host:config.databaseHost, dialect:'postgres',});
 
 (async ()=>{
+
     try {
+        // console.log(config.databaseUser);
         await sequelize.authenticate();
         console.log(sequelize._attributes);
         console.log('Connection has been established successfully.');
